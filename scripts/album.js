@@ -33,7 +33,7 @@ var albumJobs = {
      artist: 'The iMac',
      label: 'Mac',
      year: '1998',
-     albumArtUrl: 'assets/images/album_covers/20.png',
+     albumArtUrl: 'assets/images/album_covers/21.png',
      songs: [
          { title: 'The iPhone', duration: '2:01' },
          { title: 'Apple Store', duration: '4:01' },
@@ -64,18 +64,14 @@ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
  
 
  var setCurrentAlbum = function(album) {
-     // #1
 
-     // #2
      albumTitle.firstChild.nodeValue = album.title;
      albumArtist.firstChild.nodeValue = album.artist;
      albumReleaseInfo.firstChild.nodeValue = album.year + ' ' + album.label;
      albumImage.setAttribute('src', album.albumArtUrl);
- 
-     // #3
+    
      albumSongList.innerHTML = '';
  
-     // #4
      for (var i = 0; i < album.songs.length; i++) {
          albumSongList.innerHTML += createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
      }
@@ -83,15 +79,20 @@ var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
  
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
+     
      var albums = [albumPicasso, albumMarconi, albumJobs];
      var index = 1;
-
-     albumImage.addEventListener("click"), function(event){
-        setCurrentAlbum(albums[index]);
-        index++;
-        if index == album.length{
-            index = 0;
-        }
+     
+     albumImage.addEventListener("click", function(event) {
+         setCurrentAlbum(albums[index]);
+         index++;
+         if (index == albums.length) {
+             index = 0;
+         }
+         
      });
-       
- }  
+
+ };
+
+
+
