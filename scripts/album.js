@@ -28,6 +28,22 @@
      ]
  };
 
+var albumJobs = {
+     title: 'Apple',
+     artist: 'The iMac',
+     label: 'Mac',
+     year: '1998',
+     albumArtUrl: 'assets/images/album_covers/20.png',
+     songs: [
+         { title: 'The iPhone', duration: '2:01' },
+         { title: 'Apple Store', duration: '4:01' },
+         { title: 'Time Machine', duration: '7:21'},
+         { title: 'Wireless', duration: '9:14' },
+         { title: 'TV Apps', duration: '1:15'}
+     ]
+ };
+
+
  var createSongRow = function(songNumber, songName, songLength) {
      var template =
         '<tr class="album-view-song-item">'
@@ -40,14 +56,16 @@
      return template;
  };
 
+var albumTitle = document.getElementsByClassName('album-view-title')[0];
+var albumArtist = document.getElementsByClassName('album-view-artist')[0];
+var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
+var albumImage = document.getElementsByClassName('album-cover-art')[0];
+var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
+ 
+
  var setCurrentAlbum = function(album) {
      // #1
-     var albumTitle = document.getElementsByClassName('album-view-title')[0];
-     var albumArtist = document.getElementsByClassName('album-view-artist')[0];
-     var albumReleaseInfo = document.getElementsByClassName('album-view-release-info')[0];
-     var albumImage = document.getElementsByClassName('album-cover-art')[0];
-     var albumSongList = document.getElementsByClassName('album-view-song-list')[0];
- 
+
      // #2
      albumTitle.firstChild.nodeValue = album.title;
      albumArtist.firstChild.nodeValue = album.artist;
@@ -65,5 +83,15 @@
  
  window.onload = function() {
      setCurrentAlbum(albumPicasso);
- };
+     var albums = [albumPicasso, albumMarconi, albumJobs];
+     var index = 1;
 
+     albumImage.addEventListener("click"), function(event){
+        setCurrentAlbum(albums[index]);
+        index++;
+        if index == album.length{
+            index = 0;
+        }
+     });
+       
+ }  
