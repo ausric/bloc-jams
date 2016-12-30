@@ -1,6 +1,8 @@
+
+
 function forEach(array, callback){
     for (var i=0; i < array.length; i++) {
-        callbackArray[i];
+        callback(array[i]);  \\every element of the array
     }
 }
 
