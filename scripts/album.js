@@ -61,9 +61,7 @@
  };
 
  var setCurrentAlbum = function(album) {
-
      currentAlbum = album;
-
      var $albumTitle = $('.album-view-title');
      var $albumArtist = $('.album-view-artist');
      var $albumReleaseInfo = $('.album-view-release-info');
@@ -83,7 +81,6 @@
      // #4
      for (var i = 0; i < album.songs.length; i++) {
          var $newRow = createSongRow(i + 1, album.songs[i].title, album.songs[i].duration);
-
          $albumSongList.append($newRow);     
      }
  };
