@@ -7,6 +7,7 @@
      background-color: rgba(255, 255, 255, 0.3);
      z-index: 100;
  }
+
  .player-bar a {
      font-size: 1.1rem;
      vertical-align: middle;
@@ -36,7 +37,7 @@
      text-align: left;
      padding-right: 1rem;
  }
- 
+
  .player-bar .main-controls .previous {
      margin-right: 16.5%;
  }
@@ -51,7 +52,7 @@
      text-align: center;
      position: relative;
  }
- 
+
  .player-bar .currently-playing .song-name,
  .player-bar .currently-playing .artist-name,
  .player-bar .currently-playing .artist-song-mobile {
@@ -147,7 +148,7 @@
      width: 5.75rem;
      vertical-align: middle;
  }
- 
+
  @media (max-width: 640px) {
      .player-bar {
          padding: 1rem;
@@ -181,4 +182,6 @@
      .player-bar .currently-playing .artist-song-mobile {
          display: block;
      }
+
  }
+
