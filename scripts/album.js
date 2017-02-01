@@ -8,6 +8,7 @@ var setSong = function(songNumber){
          // #2
         formats: [ 'mp3' ],
         preload: true
+       
     });
  
      setVolume(currentVolume);
@@ -42,6 +43,7 @@ var getSongNumberCell = function(number) {
             // Revert to song number for currently playing song because user started playing new song.
             var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
             currentlyPlayingCell.html(currentlyPlayingSongNumber);
+            console.log("in currentlyPlayingSongNumber !== null");
          }
          if (currentlyPlayingSongNumber !== songNumber) {
             // Switch from Play -> Pause button to indicate new song is playing.
@@ -51,6 +53,7 @@ var getSongNumberCell = function(number) {
             //$(this).html(playButtonTemplate);
             //setSong(songNumber);
             //currentSongFromAlbum = currentAlbum.songs[songNumber -1];
+            console.log("in currently if statement playing album song");
             updatePlayerBarSong();
          } else if (currentlyPlayingSongNumber === songNumber) {
             // Switch from Pause -> Play button to pause currently playing song.
@@ -58,12 +61,15 @@ var getSongNumberCell = function(number) {
                 $(this).html(playButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPlayButton);
                 currentSoundFile.play();
+                console.log("in else if if statuement");
+                
             } else {
                 $(this).html(pauseButtonTemplate);
                 $('.main-controls .play-pause').html(playerBarPauseButton);
                 currentSoundFile.pause();               
                 //pause the song and set the content of the song number
                 //cell and player bar's pause button back to the play button
+                console.log("in elf if else statement");
             }
                 
          }
@@ -75,7 +81,7 @@ var getSongNumberCell = function(number) {
 
         if (songNumber !== currentlyPlayingSongNumber) {
             songNumberCell.html(playButtonTemplate);
-        }
+        } console.log ("onHover function");
      };
      var offHover = function(event) {
         var songNumberCell = $(this).find('.song-item-number');
@@ -201,23 +207,29 @@ var updatePlayerBarSong = function() {
     $('.main-controls .play-pause').html(playerBarPauseButton);
 };
 
-/*
-var togglePlayFromPlayerBar()  {
-      
-            if (currentSoundFile.isPaused()) {
-                $(this).html(playerBarPlayButton);
+
+
+
+var togglePlayFromPlayerBar = function()  {
+                 
+            console.log("toggleplayfromplayerbar was called");
+            if (currentSoundFile.play()) {
                 $('.main-controls .play-pause').html(playerBarPlayButton);
                 currentSoundFile.pause();
-            } else {
-                $(this).html(playerBarPauseButton;
-                $('.main-controls .play-pause').html(playerBarPauseButton);
-                currentSoundFile.play();               
-
-            }
+                console.log("in if statement");
+            } 
                
-         }
+            else if (currentSoundFile.isPaused){
+                $('.main-controls .play-pause').html(playerBarPauseButton);
+                currentSoundFile.Paused(); 
+                console.log("in else statement");
+               
+                
+            }
+    
+};
 
-*/
+
 
     // Album button templates
 var playButtonTemplate = '<a class="album-song-button"><span class="ion-play"></span></a>';
